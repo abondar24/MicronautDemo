@@ -20,4 +20,12 @@ datasources:
     password: admin217
     schema-generate: CREATE_DROP
     dialect: POSTGRES
+
+flyway:
+  datasources:
+    default:
+      enabled: true
+      locations:
+        classpath:migrations
+
 kafka.bootstrap.servers: localhost:9092
