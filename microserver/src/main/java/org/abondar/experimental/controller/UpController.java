@@ -7,7 +7,7 @@ import io.micronaut.http.annotation.Get;
 import javax.annotation.security.PermitAll;
 
 @Controller("/up")
-public class HelloController {
+public class UpController {
 
     @Get(processes = MediaType.TEXT_PLAIN)
     @PermitAll
