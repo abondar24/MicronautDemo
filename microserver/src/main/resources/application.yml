@@ -1,0 +1,23 @@
+micronaut:
+  application:
+    name: microserver
+  server:
+    port:
+      8040
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/microbase
+    driverClassName: org.postgresql.Driver
+    username: admin
+    password: admin217
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
+kafka.bootstrap.servers: localhost:9092
