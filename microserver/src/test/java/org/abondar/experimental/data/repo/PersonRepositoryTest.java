@@ -21,8 +21,6 @@ public class PersonRepositoryTest {
     PersonRepository repository;
 
 
-
-
     @Test
     public void personSaveTest(){
         var person = new Person("test","test","0000-0000");
@@ -41,6 +39,30 @@ public class PersonRepositoryTest {
 
         assertFalse(res.isEmpty());
         assertEquals(person.getFirstName(),res.get().getFirstName());
+    }
+
+    @Test
+    public void personFindPhoneTest(){
+        var person = new Person("test","test","0000-0000");
+
+        repository.save(person);
+
+        var res = repository.findPhoneById(person.getId());
+
+        assertEquals(person.getPhone(),res);
+    }
+
+    @Test
+    public void personFindNameTest(){
+        var person = new Person("test","test","0000-0000");
+
+        repository.save(person);
+
+        var res = repository.findOne(person.getId());
+
+        assertEquals(person.getFirstName(),res.getFirstName());
+        assertEquals(person.getLastName(),res.getLastName());
+
     }
 
     @Test
