@@ -6,14 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
-@EqualsAndHashCode
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@ToString
+//@EqualsAndHashCode
+@Entity
+@Table(name = "person")
 public class Person {
 
-    private long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String firstName;
 
@@ -25,6 +34,38 @@ public class Person {
     public Person(String firstName, String lastName, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phone = phone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

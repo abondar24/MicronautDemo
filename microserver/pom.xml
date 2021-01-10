@@ -21,7 +21,7 @@
         <exec.mainClass>org.abondar.experimental.Application</exec.mainClass>
         <micronaut.data.version>2.2.2</micronaut.data.version>
         <micronaut.openapi.version>2.2.2</micronaut.openapi.version>
-        <lombok.version>1.18.16</lombok.version>
+        <persistence.version>2.2.2</persistence.version>
         <jib.docker.image>abondar/${project.name}</jib.docker.image>
         <jib.docker.tag>${project.version}</jib.docker.tag>
         <micronaut.runtime>netty</micronaut.runtime>
@@ -100,9 +100,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${persistence.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
