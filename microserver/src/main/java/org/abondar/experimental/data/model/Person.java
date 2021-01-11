@@ -1,21 +1,11 @@
 package org.abondar.experimental.data.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Getter
-//@Setter
-//@NoArgsConstructor
-//@ToString
-//@EqualsAndHashCode
+
 @Entity
 @Table(name = "person")
 public class Person {

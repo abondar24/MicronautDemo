@@ -23,7 +23,7 @@ public class UpControllerTest {
 
     @Test
     public void testUpController(){
-        String resp = client.toBlocking()
+        var resp = client.toBlocking()
                 .retrieve(HttpRequest.GET("/up"));
 
         assertEquals("Server is up",resp);

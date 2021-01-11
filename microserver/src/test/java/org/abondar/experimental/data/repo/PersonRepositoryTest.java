@@ -1,7 +1,5 @@
 package org.abondar.experimental.data.repo;
 
-import io.micronaut.context.BeanContext;
-import io.micronaut.data.annotation.Query;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.abondar.experimental.data.model.Person;
 import org.junit.jupiter.api.Test;

@@ -18,7 +18,7 @@ datasources:
     driverClassName: org.postgresql.Driver
     username: admin
     password: admin217
-    schema-generate: CREATE_DROP
+    schema-generate: none
     dialect: POSTGRES
 
 flyway:
@@ -27,5 +27,6 @@ flyway:
       enabled: true
       locations:
         classpath:migrations
+
 
 kafka.bootstrap.servers: localhost:9092
