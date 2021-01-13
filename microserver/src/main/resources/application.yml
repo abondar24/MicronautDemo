@@ -20,6 +20,14 @@ micronaut:
         generator:
           access-token:
             expiration: 3600
+
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+        enabled: true
+
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/microbase

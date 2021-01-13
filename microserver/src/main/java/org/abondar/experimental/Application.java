@@ -7,7 +7,10 @@ import io.swagger.v3.oas.annotations.info.*;
 @OpenAPIDefinition(
         info = @Info(
                 title = "microserver",
-                version = "0.0"
+                version = "0.1",
+                description="Demo Micronaut Server",
+                license = @License(name = "MIT"),
+                contact = @Contact(url = "https://github.com/abondar24",name="Alex Bondar",email ="abondar1992@gmail.com" )
         )
 )
 public class Application {
