@@ -15,12 +15,15 @@ import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.abondar.experimental.data.model.Person;
 import org.abondar.experimental.data.repo.PersonRepository;
+import org.abondar.experimental.kafka.PersonProducer;
 
 import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
@@ -34,15 +37,19 @@ public class PersonController {
     @Inject
     PersonRepository repository;
 
+    @Inject
+    PersonProducer producer;
+
     @Post(processes = MediaType.APPLICATION_JSON,produces = MediaType.APPLICATION_JSON)
     @Operation(summary = "Create person", description = "Create a new person")
     @ApiResponse(
             content = @Content(mediaType = "application/json", schema = @Schema(type = "person"))
     )
     @ApiResponse(responseCode = "201",description = "Person Created")
-    public HttpResponse<Person> create(@RequestBody(description = "person data") @Body Person person){
+     public HttpResponse<Person> create(@RequestBody(description = "person data") @Body Person person){
 
         repository.save(person);
+        producer.sendPerson(String.valueOf(person.getId()),person.toString());
 
         return HttpResponse.created(person);
     }

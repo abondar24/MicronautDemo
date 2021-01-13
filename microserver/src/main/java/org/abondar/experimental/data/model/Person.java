@@ -1,5 +1,7 @@
 package org.abondar.experimental.data.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
+@Schema(name = "person")
 public class Person {
 
     @Id
@@ -57,5 +60,15 @@ public class Person {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }
