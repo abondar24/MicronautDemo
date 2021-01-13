@@ -11,7 +11,15 @@ micronaut:
         signatures:
           secret:
             generator:
-              secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
+              #of course remove for the sake of prod security
+              secret: 'ZmY4MDBlZTQ4MTRiYzM5Yjc5MDA1ZWJiOWI0OTYyNTcxZGUwNDI3ZDMyZTUzNzVjMjU0ODA0MzM0ZTQ0ZWVhYQ=='
+              base64: true
+              jws-algorithm: HS256
+        bearer:
+          enabled: true
+        generator:
+          access-token:
+            expiration: 3600
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/microbase

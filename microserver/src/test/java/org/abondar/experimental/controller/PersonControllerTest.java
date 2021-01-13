@@ -1,5 +1,6 @@
 package org.abondar.experimental.controller;
 
+import io.micronaut.context.annotation.Property;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.HttpClient;
@@ -8,9 +9,6 @@ import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.abondar.experimental.data.model.Person;
-
-
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -21,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
+@Property(name = "micronaut.security.enabled", value = "false")
 public class PersonControllerTest {
 
     @Inject
@@ -71,7 +70,6 @@ public class PersonControllerTest {
     }
 
     @Test
-    @Disabled
     public void testFindPhone() {
         var person = new Person("test", "test", "0000-0000");
         var resp = client.toBlocking()
@@ -81,7 +79,7 @@ public class PersonControllerTest {
         assertNotNull(body);
 
         var phoneResp = client.toBlocking()
-                .exchange(HttpRequest.GET("/person/" + body.getId() + "/phone"), String.class);
+                .exchange(HttpRequest.GET("/person/" + body.getId() + "/number"), String.class);
         var phone = phoneResp.body();
 
         assertNotNull(body);
@@ -100,6 +98,6 @@ public class PersonControllerTest {
         resp = client.toBlocking()
                 .exchange(HttpRequest.DELETE("/person/" + body.getId()), Person.class);
 
-        assertEquals(200,resp.code());
+        assertEquals(200, resp.code());
     }
 }

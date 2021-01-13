@@ -11,6 +11,8 @@ import io.micronaut.http.annotation.Error;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import org.abondar.experimental.data.model.Person;
 import org.abondar.experimental.data.repo.PersonRepository;
 
@@ -20,13 +22,13 @@ import javax.inject.Inject;
 
 
 @Controller("/person")
-@PermitAll
+@Secured(SecurityRule.IS_AUTHENTICATED)
 public class PersonController {
 
     @Inject
     PersonRepository repository;
 
-    @Post(processes = MediaType.APPLICATION_JSON)
+    @Post(processes = MediaType.APPLICATION_JSON,produces = MediaType.APPLICATION_JSON)
     public HttpResponse<Person> create(@Body Person person){
 
         repository.save(person);
@@ -43,7 +45,6 @@ public class PersonController {
     }
 
     @Get(value = "/{id}/number",produces = MediaType.APPLICATION_JSON)
-    @PermitAll
     public HttpResponse<String> findNumber(@PathVariable(name = "id") long id){
 
         var res = repository.findPhoneById(id);
