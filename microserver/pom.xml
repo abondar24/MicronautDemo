@@ -22,7 +22,7 @@
         <micronaut.data.version>2.2.2</micronaut.data.version>
         <micronaut.openapi.version>2.2.2</micronaut.openapi.version>
         <persistence.version>2.2.2</persistence.version>
-        <jib.docker.image>abondar/${project.name}</jib.docker.image>
+        <jib.docker.image>abondar/microserver-0.1</jib.docker.image>
         <jib.docker.tag>${project.version}</jib.docker.tag>
         <micronaut.runtime>netty</micronaut.runtime>
     </properties>
