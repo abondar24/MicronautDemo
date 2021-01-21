@@ -1,15 +1,12 @@
 package org.abondar.experimental.data.model;
 
+import io.micronaut.data.annotation.GeneratedValue;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-
-@Entity
-@Table(name = "person")
+@MappedEntity
 @Schema(name = "person")
 public class Person {
 

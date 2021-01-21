@@ -99,12 +99,7 @@
             <artifactId>micronaut-kafka</artifactId>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>${persistence.version}</version>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
