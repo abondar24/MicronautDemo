@@ -1,0 +1,6 @@
+applicationType: function
+defaultPackage: org.abondar.experimental
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [ annotation-api, app-name, aws-lambda, aws-v2-sdk, java, junit, logback, maven, readme, shade, yaml ]
