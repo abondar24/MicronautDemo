@@ -14,9 +14,10 @@ Credentials body
    }
     ```
 
-3. Swagger url: localhost:8040/swagger.
-4. Swagger requires JWT token
-5. Auth header requires bearer.
+3. Swagger yml: localhost:8040/swagger/microserver-0.1.yml
+4. Swagger UI: localhost:8040/swagger/views/swagger-ui/
+5. Rapidoc: localhost:8040/swagger/views/rapidoc/
+6. Auth header requires bearer.
 
 
 ## Build and run

@@ -20,6 +20,17 @@ micronaut:
         generator:
           access-token:
             expiration: 3600
+    intercept-url-map:
+      - pattern: /swagger/**
+        http-method: GET
+        access:
+          - isAnonymous()
+
+      - pattern: /favicon.ico
+        http-method: GET
+        access:
+          - isAnonymous()
+
 
   router:
     static-resources:
@@ -27,6 +38,13 @@ micronaut:
         paths: classpath:META-INF/swagger
         mapping: /swagger/**
         enabled: true
+
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+
+
+
 
 datasources:
   default:
